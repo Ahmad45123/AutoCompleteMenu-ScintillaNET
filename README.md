@@ -1,11 +1,11 @@
 # AutoCompleteMenu for ScintillaNET
-This is an edit of the popular .NET library called [AutoCompleteMenu](http://www.codeproject.com/Articles/365974/Autocomplete-Menu).
+This is an edit of the .NET library called [AutoCompleteMenu](http://www.codeproject.com/Articles/365974/Autocomplete-Menu).
 
 ## Changes: 
-#### New Features: 
-* Added support for the the popular library [ScintillaNET](https://github.com/jacobslusser/ScintillaNET).
+###### New Features: 
+* Added support for the editor [ScintillaNET](https://github.com/jacobslusser/ScintillaNET).
 
-#### Fixed bugs: 
+###### Fixed bugs: 
 * Fixed a bug where the events wheren't getting called when using a custom wrapper.
 
 ## License: 
