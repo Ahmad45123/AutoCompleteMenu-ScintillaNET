@@ -725,6 +725,7 @@ namespace AutocompleteMenuNS
 
         public void Close()
         {
+            Host.ListView.HideToolTip(Host.ListView.GetParentControl());
             Host.Close();
             forcedOpened = false;
         }
@@ -828,8 +829,6 @@ namespace AutocompleteMenuNS
 
         public void OnSelected(SelectedEventArgs args)
         {
-            Host.ListView.HideToolTip(Host.ListView.GetParentControl());
-
             if (Selected != null)
                 Selected(this, args);
         }
