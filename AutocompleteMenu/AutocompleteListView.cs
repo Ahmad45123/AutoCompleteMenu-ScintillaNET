@@ -113,7 +113,7 @@ namespace AutocompleteMenuNS
 
                 if (item != null)
                 {
-                    ShowToolTip(item);
+                    ShowToolTip(item, this.Parent);
                     ScrollToSelected();
                 }
 
