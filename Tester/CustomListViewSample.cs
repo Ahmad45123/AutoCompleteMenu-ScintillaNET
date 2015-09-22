@@ -128,6 +128,13 @@ namespace Tester
         {
         }
 
+        public void HideToolTip(Control control)
+        { }
+
+        public Control GetParentControl()
+        {
+            return this.Parent;
+        }
 
         public int HighlightedItemIndex
         {

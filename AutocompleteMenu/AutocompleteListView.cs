@@ -327,5 +327,15 @@ namespace AutocompleteMenuNS
                 toolTip.Show(text, control, Width + 3, 0, ToolTipDuration);
             }
         }
+
+        public void HideToolTip(Control control)
+        {
+            toolTip.Hide(control);
+        }
+
+        public Control GetParentControl()
+        {
+            return this.Parent;
+        }
     }
 }

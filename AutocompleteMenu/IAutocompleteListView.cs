@@ -53,6 +53,12 @@ namespace AutocompleteMenuNS
         void ShowToolTip(AutocompleteItem autocompleteItem, Control control = null);
 
         /// <summary>
+        /// Hides tooltip
+        /// </summary>
+        /// <param name="control"></param>
+        void HideToolTip(Control control);
+
+        /// <summary>
         /// Returns rectangle of item
         /// </summary>
         Rectangle GetItemRectangle(int itemIndex);
@@ -61,5 +67,8 @@ namespace AutocompleteMenuNS
         /// Colors
         /// </summary>
         Colors Colors { get; set; }
+
+
+        Control GetParentControl();
     }
 }

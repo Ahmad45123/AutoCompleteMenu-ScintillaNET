@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DynamicTooltipSample));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -68,6 +69,7 @@
             // 
             // autocompleteMenu1
             // 
+            this.autocompleteMenu1.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("autocompleteMenu1.Colors")));
             this.autocompleteMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.autocompleteMenu1.ImageList = null;
             this.autocompleteMenu1.Items = new string[] {
@@ -77,7 +79,7 @@
         "abcdef"};
             this.autocompleteMenu1.LeftPadding = 0;
             this.autocompleteMenu1.TargetControlWrapper = null;
-            this.autocompleteMenu1.ToolTipDuration = 3000;
+            this.autocompleteMenu1.ToolTipDuration = 1000000;
             this.autocompleteMenu1.Hovered += new System.EventHandler<AutocompleteMenuNS.HoveredEventArgs>(this.autocompleteMenu1_Hovered);
             // 
             // DynamicTooltipSample

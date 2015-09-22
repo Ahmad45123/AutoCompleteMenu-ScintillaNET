@@ -828,6 +828,8 @@ namespace AutocompleteMenuNS
 
         public void OnSelected(SelectedEventArgs args)
         {
+            Host.ListView.HideToolTip(Host.ListView.GetParentControl());
+
             if (Selected != null)
                 Selected(this, args);
         }
