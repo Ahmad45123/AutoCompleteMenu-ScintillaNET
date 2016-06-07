@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 using AutocompleteMenuNS;
 using ScintillaNET;
@@ -11,6 +12,15 @@ public class ScintillaWrapper : ITextBoxWrapper
     public ScintillaWrapper(Scintilla trgt)
     {
         target = trgt;
+
+        //Now add handler for the UpdateUI event.
+        target.UpdateUI += (sender, args) =>
+        {
+            if (args.Change == UpdateChange.HScroll || args.Change == UpdateChange.VScroll)
+            {
+                Scroll(sender, null);
+            }
+        };
     }
 
 
@@ -82,5 +92,6 @@ public class ScintillaWrapper : ITextBoxWrapper
         add { target.MouseDown += value; }
         remove { target.MouseDown -= value; }
     }
-    public virtual event ScrollEventHandler Scroll; //There is no any scroll events in ScintillaNET, So on hold.
+
+    public event ScrollEventHandler Scroll;
 }
