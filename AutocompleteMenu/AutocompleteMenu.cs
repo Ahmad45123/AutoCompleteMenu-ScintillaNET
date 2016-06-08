@@ -635,11 +635,16 @@ namespace AutocompleteMenuNS
                         (Host.ListView  as Control).Focus();
                         //ProcessKey((char) Keys.Down, Keys.None);
                     }
+
+                    //Set selected index.
+                    SelectedItemIndex = _neededTargetIndex;
                 }
             }
             else
                 (Host.ListView as Control).Invalidate();
         }
+
+        private int _neededTargetIndex = 0;
 
         private void BuildAutocompleteList(bool forced)
         {
@@ -674,9 +679,9 @@ namespace AutocompleteMenuNS
             VisibleItems = visibleItems;
 
             if (foundSelected)
-                SelectedItemIndex = selectedIndex;
+                _neededTargetIndex = selectedIndex;
             else
-                SelectedItemIndex = 0;
+                _neededTargetIndex = 0;
 
             Host.ListView.HighlightedItemIndex = -1;
 
