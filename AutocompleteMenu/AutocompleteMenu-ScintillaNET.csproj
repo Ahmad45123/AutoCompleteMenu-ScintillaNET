@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AutocompleteMenuNS</RootNamespace>
-    <AssemblyName>AutocompleteMenu</AssemblyName>
+    <AssemblyName>AutocompleteMenu-ScintillaNET</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

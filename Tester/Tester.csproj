@@ -188,9 +188,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AutocompleteMenu\AutocompleteMenu.csproj">
+    <ProjectReference Include="..\AutocompleteMenu\AutocompleteMenu-ScintillaNET.csproj">
       <Project>{43CBC9AA-6A8E-463F-83A9-AFF3124AFDB6}</Project>
-      <Name>AutocompleteMenu</Name>
+      <Name>AutocompleteMenu-ScintillaNET</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
