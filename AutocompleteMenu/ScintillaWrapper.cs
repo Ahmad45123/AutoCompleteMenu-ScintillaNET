@@ -16,9 +16,9 @@ public class ScintillaWrapper : ITextBoxWrapper
         //Now add handler for the UpdateUI event.
         target.UpdateUI += (sender, args) =>
         {
-            if (args.Change == UpdateChange.HScroll || args.Change == UpdateChange.VScroll)
+            if (args?.Change == UpdateChange.HScroll || args?.Change == UpdateChange.VScroll)
             {
-                Scroll(sender, null);
+                Scroll?.Invoke(sender, new ScrollEventArgs(ScrollEventType.LargeIncrement, 0));
             }
         };
     }
