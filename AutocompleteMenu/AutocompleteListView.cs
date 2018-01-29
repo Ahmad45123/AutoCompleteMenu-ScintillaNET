@@ -147,14 +147,26 @@ namespace AutocompleteMenuNS
 
         private void ScrollToSelected()
         {
-            int y = SelectedItemIndex*ItemHeight - VerticalScroll.Value;
-            if (HasColumn) y += ItemHeight;
+            int y;
+            if(HasColumn)
+                y = (SelectedItemIndex + 1)*ItemHeight - VerticalScroll.Value;
+            else
+                y = SelectedItemIndex * ItemHeight - VerticalScroll.Value;
+            //if (HasColumn) y += ItemHeight;
 
             if (y < 0)
-                VerticalScroll.Value = SelectedItemIndex*ItemHeight;
+                if(HasColumn)
+                    VerticalScroll.Value = (SelectedItemIndex + 1) * ItemHeight;
+                else
+                    VerticalScroll.Value = SelectedItemIndex * ItemHeight;
             if (y > ClientSize.Height - ItemHeight)
                 VerticalScroll.Value = Math.Min(VerticalScroll.Maximum,
                                                 (HasColumn ? (SelectedItemIndex*ItemHeight) + ItemHeight : SelectedItemIndex * ItemHeight) - ClientSize.Height + ItemHeight);
+
+            //Show headers if index 0 is selected.
+            if (HasColumn && SelectedItemIndex == 0)
+                VerticalScroll.Value = 0;
+
             //some magic for update scrolls
             AutoScrollMinSize -= new Size(1, 0);
             AutoScrollMinSize += new Size(1, 0);
@@ -207,6 +219,7 @@ namespace AutocompleteMenuNS
                 }
 
                 float x = textRect.X;
+                sf.Alignment = StringAlignment.Center;
                 for (int i = 0; i < ColumnsTitle.Length; i++)
                 {
                     using (var brush = new SolidBrush(Colors.ForeColor))
@@ -218,6 +231,10 @@ namespace AutocompleteMenuNS
                         x += width;
                     }
                 }
+                if (rtl)
+                    sf.FormatFlags = StringFormatFlags.DirectionRightToLeft;
+                else
+                    sf = new StringFormat();
             }
 
             startI = Math.Max(startI, 0);
@@ -275,13 +292,17 @@ namespace AutocompleteMenuNS
 
         protected override void OnMouseClick(MouseEventArgs e)
         {
-            base.OnMouseClick(e);
-
-            if (e.Button == MouseButtons.Left)
+            int i = PointToItemIndex(e.Location);
+            if (i >= 0)
             {
-                SelectedItemIndex = PointToItemIndex(e.Location);
-                ScrollToSelected();
-                Invalidate();
+                base.OnMouseClick(e);
+
+                if (e.Button == MouseButtons.Left)
+                {
+                    SelectedItemIndex = i;
+                    ScrollToSelected();
+                    Invalidate();
+                }
             }
         }
 
@@ -299,17 +320,25 @@ namespace AutocompleteMenuNS
 
             if (mouseEnterPoint != Control.MousePosition)
             {
-                HighlightedItemIndex = PointToItemIndex(e.Location);
-                Invalidate();
+                int i = PointToItemIndex(e.Location);
+                if (i >= 0)
+                {
+                    HighlightedItemIndex = i;
+                    Invalidate();
+                }
             }
         }
 
         protected override void OnMouseDoubleClick(MouseEventArgs e)
         {
-            base.OnMouseDoubleClick(e);
-            SelectedItemIndex = PointToItemIndex(e.Location);
-            Invalidate();
-            OnItemSelected();
+            int i = PointToItemIndex(e.Location);
+            if (i >= 0)
+            {
+                base.OnMouseDoubleClick(e);
+                SelectedItemIndex = i;
+                Invalidate();
+                OnItemSelected();
+            }
         }
 
         private void OnItemSelected()
@@ -321,7 +350,10 @@ namespace AutocompleteMenuNS
 
         private int PointToItemIndex(Point p)
         {
-            return (p.Y + VerticalScroll.Value)/ItemHeight;
+            var t = (p.Y + VerticalScroll.Value);
+            if (HasColumn)
+                t -= ItemHeight;
+            return (float)t / ItemHeight < 0 ? -1 : t / ItemHeight;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
