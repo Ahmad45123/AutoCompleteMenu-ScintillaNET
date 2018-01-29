@@ -65,10 +65,12 @@
             // 
             // autocompleteMenu1
             // 
+            this.autocompleteMenu1.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("autocompleteMenu1.Colors")));
             this.autocompleteMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.autocompleteMenu1.ImageList = this.imageList1;
             this.autocompleteMenu1.Items = new string[0];
             this.autocompleteMenu1.MinFragmentLength = 1;
+            this.autocompleteMenu1.TargetControlWrapper = null;
             // 
             // imageList1
             // 
@@ -118,6 +120,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "MultiColumnSample";
             this.Text = "MulticolumnSample";
+            this.Load += new System.EventHandler(this.MultiColumnSample_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

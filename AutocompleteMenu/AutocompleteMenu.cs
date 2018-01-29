@@ -834,6 +834,13 @@ namespace AutocompleteMenuNS
                 Selected(this, args);
         }
 
+        
+        public void SetColumns(string[] columns, int[] columnsWidth = null)
+        {
+            ListView.ColumnsTitle = columns;
+            ListView.ColumnsWidth = columnsWidth;
+        }
+
         public void SelectNext(int shift)
         {
             SelectedItemIndex = Math.Max(0, Math.Min(SelectedItemIndex + shift, VisibleItems.Count - 1));

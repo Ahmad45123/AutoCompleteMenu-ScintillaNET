@@ -29,6 +29,9 @@ namespace Tester
     {
         #region IAutocompleteListView
 
+        public string[] ColumnsTitle { get; set; }
+        public int[] ColumnsWidth { get; set; }
+
         public int SelectedItemIndex
         {
             get { 

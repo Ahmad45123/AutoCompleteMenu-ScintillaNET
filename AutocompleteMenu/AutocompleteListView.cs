@@ -86,6 +86,9 @@ namespace AutocompleteMenuNS
 
         public ImageList ImageList { get; set; }
 
+        public string[] ColumnsTitle { get; set; } = null;
+        public int[] ColumnsWidth { get; set; } = null;
+
         public IList<AutocompleteItem> VisibleItems
         {
             get { return visibleItems; }
@@ -135,6 +138,7 @@ namespace AutocompleteMenuNS
                 return;
 
             int needHeight = ItemHeight*VisibleItems.Count + 1;
+            if (HasColumn) needHeight += ItemHeight;
             Height = Math.Min(needHeight, MaximumSize.Height);
             AutoScrollMinSize = new Size(0, needHeight);
             oldItemCount = VisibleItems.Count;
@@ -144,11 +148,13 @@ namespace AutocompleteMenuNS
         private void ScrollToSelected()
         {
             int y = SelectedItemIndex*ItemHeight - VerticalScroll.Value;
+            if (HasColumn) y += ItemHeight;
+
             if (y < 0)
                 VerticalScroll.Value = SelectedItemIndex*ItemHeight;
             if (y > ClientSize.Height - ItemHeight)
                 VerticalScroll.Value = Math.Min(VerticalScroll.Maximum,
-                                                SelectedItemIndex*ItemHeight - ClientSize.Height + ItemHeight);
+                                                (HasColumn ? (SelectedItemIndex*ItemHeight) + ItemHeight : SelectedItemIndex * ItemHeight) - ClientSize.Height + ItemHeight);
             //some magic for update scrolls
             AutoScrollMinSize -= new Size(1, 0);
             AutoScrollMinSize += new Size(1, 0);
@@ -165,19 +171,64 @@ namespace AutocompleteMenuNS
             e.Graphics.Clear(Colors.BackColor);
         }
 
+        private bool HasColumn
+        {
+            get
+            {
+                return ColumnsTitle != null && ColumnsTitle.Length != 0;
+            }
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             bool rtl = RightToLeft == RightToLeft.Yes;
             AdjustScroll();
             int startI = VerticalScroll.Value/ItemHeight - 1;
             int finishI = (VerticalScroll.Value + ClientSize.Height)/ItemHeight + 1;
+            int y = 0;
+
+            var sf = new StringFormat();
+            if (rtl)
+                sf.FormatFlags = StringFormatFlags.DirectionRightToLeft;
+
+            if (HasColumn && VerticalScroll.Value == 0)
+            {
+                var textRect = new Rectangle(LeftPadding, y, ClientSize.Width - 1 - LeftPadding, ItemHeight - 1);
+                if (rtl)
+                    textRect = new Rectangle(1, y, ClientSize.Width - 1 - LeftPadding, ItemHeight - 1);
+
+                int[] columnWidth = ColumnsWidth;
+                if (columnWidth == null)
+                {
+                    columnWidth = new int[ColumnsTitle.Length];
+                    float step = textRect.Width / ColumnsTitle.Length;
+                    for (int i = 0; i < ColumnsTitle.Length; i++)
+                        columnWidth[i] = (int)step;
+                }
+
+                float x = textRect.X;
+                for (int i = 0; i < ColumnsTitle.Length; i++)
+                {
+                    using (var brush = new SolidBrush(Colors.ForeColor))
+                    {
+                        var width = columnWidth[i];
+                        var rect = new RectangleF(x, textRect.Top, width, textRect.Height);
+                        e.Graphics.DrawLine(Pens.Silver, new PointF(x, textRect.Top), new PointF(x, textRect.Bottom));
+                        e.Graphics.DrawString(ColumnsTitle[i], Font, brush, rect, sf);
+                        x += width;
+                    }
+                }
+            }
+
             startI = Math.Max(startI, 0);
             finishI = Math.Min(finishI, VisibleItems.Count);
-            int y = 0;
 
             for (int i = startI; i < finishI; i++)
             {
-                y = i*ItemHeight - VerticalScroll.Value;
+                if(HasColumn)
+                    y = (i * ItemHeight - VerticalScroll.Value) + ItemHeight;
+                else
+                    y = i * ItemHeight - VerticalScroll.Value;
 
                 if (ImageList != null && VisibleItems[i].ImageIndex >= 0)
                     if (rtl)
@@ -201,10 +252,6 @@ namespace AutocompleteMenuNS
                 if (i == HighlightedItemIndex)
                 using (var pen = new Pen(Colors.HighlightingColor))
                     e.Graphics.DrawRectangle(pen, textRect);
-
-                var sf = new StringFormat();
-                if (rtl)
-                    sf.FormatFlags = StringFormatFlags.DirectionRightToLeft;
 
                 var args = new PaintItemEventArgs(e.Graphics, e.ClipRectangle)
                                {

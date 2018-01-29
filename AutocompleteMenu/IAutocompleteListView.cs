@@ -15,6 +15,9 @@ namespace AutocompleteMenuNS
         /// </summary>
         ImageList ImageList { get; set; }
 
+        string[] ColumnsTitle { get; set; }
+        int[] ColumnsWidth { get; set; }
+
         /// <summary>
         /// Index of current selected item
         /// </summary>
