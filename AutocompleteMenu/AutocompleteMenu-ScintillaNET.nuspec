@@ -2,21 +2,29 @@
 <package >
   <metadata>
     <id>AutoCompleteMenu-ScintillaNET</id>
-    <version>1.5</version>
+    <version>1.6</version>
     <title>AutoCompleteMenu-ScintillaNET</title>
     <authors>Ahmed Mamdouh</authors>
     <owners>Ahmed Mamdouh</owners>
     <licenseUrl>http://www.opensource.org/licenses/lgpl-3.0.html</licenseUrl>
-    <projectUrl>https://github.com/JohnyMac/AutoCompleteMenu-ScintillaNET</projectUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/Ahmad45123/AutoCompleteMenu-ScintillaNET</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>
     This is an AutoCompleteMenu based on this: 
     http://www.codeproject.com/Articles/365974/Autocomplete-Menu - ByPavel Torgashov
     
     The main added feature is SctintillaNET wrapper and also fixed several bugs that can be seen in GitHub.
+	
+	==========================
+	Changes v1.6: 
+	* Added Column Titles.
+	* Updated ScintillaNET to latest version v3.6.3
     </description>
+	<summary>
+	A cool AutoCompleteMenu that works with ScintillaNET.
+	</summary>
     <releaseNotes>Added wrapper for ScintillaNET and fixes several bugs.</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>AutoCompleteMenu ScintillaNET</tags>
   </metadata>
 </package>
