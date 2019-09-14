@@ -137,12 +137,17 @@ namespace AutocompleteMenuNS
         public bool CompareBySubstring { get; set; }
         public string[] MenuTextByColumns { get; set; }
         public int[] ColumnWidth { get; set; }
+        public StringAlignment[] Alignments { get; set; }
 
         public MulticolumnAutocompleteItem(string[] menuTextByColumns, string insertingText, bool compareBySubstring = true, bool ignoreCase = true)
             : base(insertingText, ignoreCase)
         {
             this.CompareBySubstring = compareBySubstring;
             this.MenuTextByColumns = menuTextByColumns;
+            var tmp = new List<StringAlignment>();
+            for(int i = 0; i < menuTextByColumns.Length; i++)
+                tmp.Add(StringAlignment.Near);
+            this.Alignments = tmp.ToArray();
         }
 
         public override CompareResult Compare(string fragmentText)
@@ -154,9 +159,9 @@ namespace AutocompleteMenuNS
             {
                 if (Text.StartsWith(fragmentText, StringComparison.InvariantCultureIgnoreCase))
                     return CompareResult.VisibleAndSelected;
-            }else
-                if (Text.StartsWith(fragmentText))
-                    return CompareResult.VisibleAndSelected;
+            } else
+            if (Text.StartsWith(fragmentText))
+                return CompareResult.VisibleAndSelected;
 
             return CompareResult.Hidden;
         }
@@ -181,14 +186,14 @@ namespace AutocompleteMenuNS
             e.StringFormat.FormatFlags = e.StringFormat.FormatFlags | StringFormatFlags.NoWrap;
 
             using (var brush = new SolidBrush(e.IsSelected ? e.Colors.SelectedForeColor : e.Colors.ForeColor))
-            for (int i=0;i<MenuTextByColumns.Length;i++)
-            {
-                var width = columnWidth[i];
-                var rect = new RectangleF(x, e.TextRect.Top, width, e.TextRect.Height);
-                e.Graphics.DrawLine(pen, new PointF(x, e.TextRect.Top), new PointF(x, e.TextRect.Bottom));
-                e.Graphics.DrawString(MenuTextByColumns[i], e.Font, brush, rect, e.StringFormat);
-                x += width;
-            }
+                for (int i=0;i<MenuTextByColumns.Length;i++)
+                {
+                    var width = columnWidth[i];
+                    var rect = new RectangleF(x, e.TextRect.Top, width, e.TextRect.Height);
+                    e.Graphics.DrawLine(pen, new PointF(x, e.TextRect.Top), new PointF(x, e.TextRect.Bottom));
+                    e.Graphics.DrawString(MenuTextByColumns[i], e.Font, brush, rect, new StringFormat() {Alignment = Alignments[i]});
+                    x += width;
+                }
         }
     }
 }
