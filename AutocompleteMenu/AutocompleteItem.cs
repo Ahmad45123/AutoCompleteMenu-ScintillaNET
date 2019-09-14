@@ -31,6 +31,11 @@ namespace AutocompleteMenuNS
         public int ImageIndex{get; set; }
 
         /// <summary>
+        /// Alignment. The direction the text shows.
+        /// </summary>
+        public StringAlignment Alignment { get; set; }
+
+        /// <summary>
         /// Title for tooltip.
         /// </summary>
         /// <remarks>Return null for disable tooltip for this item</remarks>
@@ -59,7 +64,6 @@ namespace AutocompleteMenuNS
             set { menuText = value; }
         }
 
-
         public AutocompleteItem()
         {
             ImageIndex = -1;
@@ -68,6 +72,7 @@ namespace AutocompleteMenuNS
         public AutocompleteItem(string text):this()
         {
             Text = text;
+            Alignment = StringAlignment.Near;
         }
 
         public AutocompleteItem(string text, int imageIndex)
@@ -127,7 +132,7 @@ namespace AutocompleteMenuNS
         public virtual void OnPaint(PaintItemEventArgs e)
         {
             using(var brush = new SolidBrush(e.IsSelected ? e.Colors.SelectedForeColor : e.Colors.ForeColor))
-                e.Graphics.DrawString(ToString(), e.Font, brush, e.TextRect, e.StringFormat);
+                e.Graphics.DrawString(ToString(), e.Font, brush, e.TextRect, new StringFormat() {Alignment = Alignment});
         }
     }
 
