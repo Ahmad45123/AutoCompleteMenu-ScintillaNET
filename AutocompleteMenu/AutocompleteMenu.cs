@@ -522,6 +522,7 @@ namespace AutocompleteMenuNS
                     case Keys.End:
                     case Keys.Home:
                     case Keys.ControlKey:
+                    case Keys.Escape:
                         {
                             timer.Stop();
                             return;
