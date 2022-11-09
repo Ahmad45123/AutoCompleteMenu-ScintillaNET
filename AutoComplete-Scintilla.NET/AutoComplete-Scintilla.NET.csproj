@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net45;net6.0-windows;netcoreapp3.1;net5.0-windows</TargetFrameworks>
+    <RootNamespace>AutoComplete_Scintilla.NET</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <Version>5.3.1</Version>
+    <Authors>© Pavel Torgashov, 2012-2015, p_torgashov@ukr.net. ©2022 VPKSoft</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>AutocompleteMenu control</Description>
+    <Copyright>© Pavel Torgashov, 2012-2015, p_torgashov@ukr.net. ©2022 VPKSoft</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AutocompleteMenu\AutocompleteItem.cs" Link="AutocompleteItem.cs" />
+    <Compile Include="..\AutocompleteMenu\AutocompleteItems.cs" Link="AutocompleteItems.cs" />
+    <Compile Include="..\AutocompleteMenu\AutocompleteListView.cs" Link="AutocompleteListView.cs" />
+    <Compile Include="..\AutocompleteMenu\AutocompleteMenu.cs" Link="AutocompleteMenu.cs" />
+    <Compile Include="..\AutocompleteMenu\AutocompleteMenuHost.cs" Link="AutocompleteMenuHost.cs" />
+    <Compile Include="..\AutocompleteMenu\Colors.cs" Link="Colors.cs" />
+    <Compile Include="..\AutocompleteMenu\EventArgs.cs" Link="EventArgs.cs" />
+    <Compile Include="..\AutocompleteMenu\IAutocompleteListView.cs" Link="IAutocompleteListView.cs" />
+    <Compile Include="..\AutocompleteMenu\ITextBoxWrapper.cs" Link="ITextBoxWrapper.cs" />
+    <Compile Include="..\AutocompleteMenu\Range.cs" Link="Range.cs" />
+    <Compile Include="..\AutocompleteMenu\ScintillaWrapper.cs" Link="ScintillaWrapper.cs" />
+    <Compile Include="..\AutocompleteMenu\TextBoxWrapper.cs" Link="TextBoxWrapper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\AutocompleteMenu\AutocompleteMenu.resx" Link="AutocompleteMenu.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Scintilla.NET" Version="5.3.1.3" />
+  </ItemGroup>
+
+</Project>

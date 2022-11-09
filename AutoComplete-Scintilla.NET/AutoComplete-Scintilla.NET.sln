@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoComplete-Scintilla.NET", "AutoComplete-Scintilla.NET.csproj", "{139D27DE-AE8A-4691-BDCA-B9F2A0F3F43B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester5-Series", "..\Tester5-Series\Tester5-Series.csproj", "{24E59AEF-9056-4A4A-AB01-93DC7E686531}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{139D27DE-AE8A-4691-BDCA-B9F2A0F3F43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139D27DE-AE8A-4691-BDCA-B9F2A0F3F43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139D27DE-AE8A-4691-BDCA-B9F2A0F3F43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139D27DE-AE8A-4691-BDCA-B9F2A0F3F43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E59AEF-9056-4A4A-AB01-93DC7E686531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E59AEF-9056-4A4A-AB01-93DC7E686531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E59AEF-9056-4A4A-AB01-93DC7E686531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E59AEF-9056-4A4A-AB01-93DC7E686531}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39CA075D-8792-4AB7-AB0D-54092A2D7F09}
+	EndGlobalSection
+EndGlobal
