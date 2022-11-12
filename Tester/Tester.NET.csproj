@@ -1,0 +1,162 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <ProjectGuid>{43D51B6D-CBE3-442C-A5EF-5E7D4626BB35}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyTitle>Tester</AssemblyTitle>
+    <Product>Tester</Product>
+    <Copyright>Copyright ©  2012</Copyright>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AdvancedSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AdvancedSample.Designer.cs">
+      <DependentUpon>AdvancedSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ComboboxSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ComboboxSample.Designer.cs">
+      <DependentUpon>ComboboxSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Sandbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sandbox.Designer.cs">
+      <DependentUpon>Sandbox.cs</DependentUpon>
+    </Compile>
+    <Compile Update="DynamicTooltipSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DynamicTooltipSample.Designer.cs">
+      <DependentUpon>DynamicTooltipSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="DataGridViewSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DataGridViewSample.Designer.cs">
+      <DependentUpon>DataGridViewSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="CustomListViewSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomListViewSample.Designer.cs">
+      <DependentUpon>CustomListViewSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="DynamicMenuSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DynamicMenuSample.Designer.cs">
+      <DependentUpon>DynamicMenuSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="MultiColumnSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MultiColumnSample.Designer.cs">
+      <DependentUpon>MultiColumnSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="CustomItemSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomItemSample.Designer.cs">
+      <DependentUpon>CustomItemSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ExtraLargeSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ExtraLargeSample.Designer.cs">
+      <DependentUpon>ExtraLargeSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ScintillaSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ScintillaSample.Designer.cs">
+      <DependentUpon>ScintillaSample.cs</DependentUpon>
+    </Compile>
+    <Compile Update="SimplestSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SimplestSample.Designer.cs">
+      <DependentUpon>SimplestSample.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="AdvancedSample.resx">
+      <DependentUpon>AdvancedSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ComboboxSample.resx">
+      <DependentUpon>ComboboxSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Sandbox.resx">
+      <DependentUpon>Sandbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DynamicTooltipSample.resx">
+      <DependentUpon>DynamicTooltipSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DataGridViewSample.resx">
+      <DependentUpon>DataGridViewSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomListViewSample.resx">
+      <DependentUpon>CustomListViewSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DynamicMenuSample.resx">
+      <DependentUpon>DynamicMenuSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MultiColumnSample.resx">
+      <DependentUpon>MultiColumnSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomItemSample.resx">
+      <DependentUpon>CustomItemSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ExtraLargeSample.resx">
+      <DependentUpon>ExtraLargeSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Update="ScintillaSample.resx">
+      <DependentUpon>ScintillaSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SimplestSample.resx">
+      <DependentUpon>SimplestSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoComplete-Scintilla.NET\AutoComplete-Scintilla.NET.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="obj\x86\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+</Project>
