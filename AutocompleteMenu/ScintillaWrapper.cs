@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 using AutocompleteMenuNS;
 using ScintillaNET;
