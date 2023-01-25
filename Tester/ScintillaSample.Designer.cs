@@ -35,7 +35,6 @@
             // 
             // AutoComplete
             // 
-            this.AutoComplete.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("AutoComplete.Colors")));
             this.AutoComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.AutoComplete.ImageList = null;
             this.AutoComplete.Items = new string[] {
