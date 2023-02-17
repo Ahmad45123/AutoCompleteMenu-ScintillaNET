@@ -30,6 +30,10 @@ namespace Tester
             ImageIndex = 0;
             ToolTipTitle = "Insert email:";
             ToolTipText = email;
+            
+            // Test change colors
+            ToolTipForeColor = Color.Red;
+            ToolTipBackColor = Color.Aqua;
         }
 
         public override CompareResult Compare(string fragmentText)

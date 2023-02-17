@@ -69,7 +69,6 @@
             // 
             // autocompleteMenu1
             // 
-            this.autocompleteMenu1.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("autocompleteMenu1.Colors")));
             this.autocompleteMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.autocompleteMenu1.ImageList = null;
             this.autocompleteMenu1.Items = new string[] {

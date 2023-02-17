@@ -13,6 +13,8 @@ namespace AutocompleteMenuNS
         public object Tag;
         string toolTipTitle;
         string toolTipText;
+        Color? toolTipBackColor = null;
+        Color? toolTipForeColor = null;
         string menuText;
 
         /// <summary>
@@ -53,6 +55,26 @@ namespace AutocompleteMenuNS
         {
             get { return toolTipText; }
             set { toolTipText = value; }
+        }
+
+        /// <summary>
+        /// Tooltip Backcolor.
+        /// </summary>
+        /// <remarks>For display tooltip backcolor, ToolTipTitle must be not null</remarks>
+        public virtual Color? ToolTipBackColor
+        {
+            get { return toolTipBackColor; }
+            set { toolTipBackColor = value; }
+        }
+
+        /// <summary>
+        /// Tooltip ForeColor.
+        /// </summary>
+        /// <remarks>For display tooltip forecolor, ToolTipTitle must be not null</remarks>
+        public virtual Color? ToolTipForeColor
+        {
+            get { return toolTipForeColor; }
+            set { toolTipForeColor = value; }
         }
 
         /// <summary>
@@ -132,7 +154,7 @@ namespace AutocompleteMenuNS
         public virtual void OnPaint(PaintItemEventArgs e)
         {
             using(var brush = new SolidBrush(e.IsSelected ? e.Colors.SelectedForeColor : e.Colors.ForeColor))
-                e.Graphics.DrawString(ToString(), e.Font, brush, e.TextRect, new StringFormat() {Alignment = Alignment});
+                e.Graphics.DrawString(ToString(), e.Font, brush, e.TextRect, new StringFormat() { Alignment = Alignment });
         }
     }
 

@@ -47,6 +47,16 @@ namespace AutocompleteMenuNS
             LeftPadding = 18;
             ToolTipDuration = 3000;
             Colors = new Colors();
+
+            toolTip.OwnerDraw = true;
+            toolTip.Draw += ToolTip_Draw;
+        }
+
+        private void ToolTip_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawBorder();
+            e.DrawText();
         }
 
         protected override void Dispose(bool disposing)
@@ -385,24 +395,31 @@ namespace AutocompleteMenuNS
         {
             string title = autocompleteItem.ToolTipTitle;
             string text = autocompleteItem.ToolTipText;
+            Color? backColor = autocompleteItem.ToolTipBackColor;
+            Color? foreColor = autocompleteItem.ToolTipForeColor;
+
             if (control == null)
                 control = this;
 
-            if (string.IsNullOrEmpty(title))
-            {
-                toolTip.ToolTipTitle = null;
+            if (string.IsNullOrEmpty(title)) {
                 toolTip.SetToolTip(control, null);
                 return;
             }
 
-            if (string.IsNullOrEmpty(text))
+            if (backColor != null)
             {
-                toolTip.ToolTipTitle = null;
+                toolTip.BackColor = (Color)backColor;
+            }
+            
+            if (foreColor != null)
+            {
+                toolTip.ForeColor = (Color)foreColor;
+            }
+            
+            if (string.IsNullOrEmpty(text)) {
                 toolTip.Show(title, control, Width + 3, 0, ToolTipDuration);
             }
-            else
-            {
-                toolTip.ToolTipTitle = title;
+            else {
                 toolTip.Show(text, control, Width + 3, 0, ToolTipDuration);
             }
         }
