@@ -708,7 +708,6 @@ namespace AutocompleteMenuNS
             int mxWidth = 0;
             for (int i = 0; i < VisibleItems.Count; i++)
             {
-                Debug.WriteLine(VisibleItems[i].ToString());
                 int width = TextRenderer.MeasureText(Host.CreateGraphics(), VisibleItems[i].ToString(), Font).Width;
                 if (width > mxWidth)
                     mxWidth = width;
