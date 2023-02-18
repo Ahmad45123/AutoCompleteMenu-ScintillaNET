@@ -658,7 +658,7 @@ namespace AutocompleteMenuNS
                 (Host.ListView as Control).Invalidate();
         }
 
-        int BuildAutocompleteList(bool forced)
+        private int BuildAutocompleteList(bool forced)
         {
             var visibleItems = new List<AutocompleteItem>();
 
