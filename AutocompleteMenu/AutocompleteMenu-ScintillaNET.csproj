@@ -15,16 +15,18 @@
     The main added feature is SctintillaNET wrapper and also fixed several bugs that can be seen in GitHub.
  
  ==========================
- Changes v1.7: 
- * Updated ScintillaNET to change the newer library Scintilla.NET.
- * Changed to use .NET v6</Description>
+ Changes v2.1: 
+ * ToolTips now support changing of their BackColor and ForeColor.
+ * Fixed ToolTip showing in wrong location in first time.
+ * Added an AutoWidth feature. </Description>
     <Copyright>http://www.opensource.org/licenses/lgpl-3.0.html</Copyright>
     <PackageProjectUrl>https://github.com/Ahmad45123/AutoCompleteMenu-ScintillaNET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Ahmad45123/AutoCompleteMenu-ScintillaNET</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes> * Updated ScintillaNET to change the newer library Scintilla.NET.
- * Changed to use .NET v6</PackageReleaseNotes>
-    <Version>2.0.0</Version>
+    <PackageReleaseNotes> * ToolTips now support changing of their BackColor and ForeColor.
+ * Fixed ToolTip showing in wrong location in first time.
+ * Added an AutoWidth feature. </PackageReleaseNotes>
+    <Version>2.1.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
