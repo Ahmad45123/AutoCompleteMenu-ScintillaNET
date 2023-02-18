@@ -609,7 +609,7 @@ namespace AutocompleteMenuNS
             }
 
             //build list
-            BuildAutocompleteList(forcedOpened);
+            int selIndex = BuildAutocompleteList(forcedOpened);
 
             //show popup menu
             if (VisibleItems.Count > 0)
@@ -621,7 +621,12 @@ namespace AutocompleteMenuNS
                     Close();
                 }
                 else
+                {
                     ShowMenu();
+
+                    Host.ListView.SelectedItemIndex = selIndex;
+                    Host.ListView.HighlightedItemIndex = -1;
+                }
             }
             else
                 Close();
@@ -653,7 +658,7 @@ namespace AutocompleteMenuNS
                 (Host.ListView as Control).Invalidate();
         }
 
-        private void BuildAutocompleteList(bool forced)
+        int BuildAutocompleteList(bool forced)
         {
             var visibleItems = new List<AutocompleteItem>();
 
@@ -685,13 +690,6 @@ namespace AutocompleteMenuNS
 
             VisibleItems = visibleItems;
 
-            if (foundSelected)
-                Host.ListView.SelectedItemIndex = selectedIndex;
-            else
-                Host.ListView.SelectedItemIndex = 0;
-
-            Host.ListView.HighlightedItemIndex = -1;
-
             /* Calculate Width Depending on Largest Value */
             if (AutoWidth)
             {
@@ -701,6 +699,8 @@ namespace AutocompleteMenuNS
             {
                 Host.CalcSize();
             }
+
+            return selectedIndex;
         }
 
         private void UpdateSizeBasedOnVisible()
