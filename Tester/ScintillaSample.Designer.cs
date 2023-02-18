@@ -35,6 +35,7 @@
             // 
             // AutoComplete
             // 
+            this.AutoComplete.AutoWidth = true;
             this.AutoComplete.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("AutoComplete.Colors")));
             this.AutoComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AutoComplete.ImageList = null;
@@ -42,11 +43,14 @@
         "Ahmed",
         "Gasser",
         "Anas",
+        "Yolo",
+        "Hey",
+        "Mamdouh",
         "Mohammed",
-        "COLOR_RED_GREY",
         "COLOR_RED",
-        "SendClientMessage"};
-            this.AutoComplete.MaximumSize = new System.Drawing.Size(300, 200);
+        "SendClientMessage",
+        "COLOR_RED_GREY_BLUE_TEST_123_AHA"};
+            this.AutoComplete.MaximumSize = new System.Drawing.Size(500, 200);
             this.AutoComplete.TargetControlWrapper = null;
             // 
             // scintilla1

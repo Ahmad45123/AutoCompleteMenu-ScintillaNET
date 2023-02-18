@@ -264,6 +264,13 @@ namespace AutocompleteMenuNS
         [DefaultValue(500)]
         public int AppearInterval { get; set; }
 
+        /// <summary>
+        /// If true, the menu's width will be adjusted depending on visible items.
+        /// </summary>
+        [Description("If true, the menu's width will be adjusted depending on visible items. Bounded by MaximumSize")]
+        [DefaultValue(false)]
+        public bool AutoWidth { get; set; }
+
         [DefaultValue(null)]
         public string[] Items
         {
@@ -311,7 +318,10 @@ namespace AutocompleteMenuNS
         /// </summary>
         public void Update()
         {
-            Host.CalcSize();
+            if (AutoWidth)
+                UpdateSizeBasedOnVisible();
+            else
+                Host.CalcSize();
         }
 
         /// <summary>
@@ -682,7 +692,30 @@ namespace AutocompleteMenuNS
 
             Host.ListView.HighlightedItemIndex = -1;
 
-            Host.CalcSize();
+            /* Calculate Width Depending on Largest Value */
+            if (AutoWidth)
+            {
+                UpdateSizeBasedOnVisible();
+            }
+            else
+            {
+                Host.CalcSize();
+            }
+        }
+
+        private void UpdateSizeBasedOnVisible()
+        {
+            int mxWidth = 0;
+            for (int i = 0; i < VisibleItems.Count; i++)
+            {
+                Debug.WriteLine(VisibleItems[i].ToString());
+                int width = TextRenderer.MeasureText(Host.CreateGraphics(), VisibleItems[i].ToString(), Font).Width;
+                if (width > mxWidth)
+                    mxWidth = width;
+            }
+
+            mxWidth += LeftPadding;
+            Host.CalcSize(Math.Min(MaximumSize.Width, mxWidth));
         }
 
         internal void OnOpening(CancelEventArgs args)

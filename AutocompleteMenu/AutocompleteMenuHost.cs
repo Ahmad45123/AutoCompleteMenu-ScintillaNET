@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -63,10 +64,19 @@ namespace AutocompleteMenuNS
                 e.Graphics.FillRectangle(brush, e.ClipRectangle);
         }
 
-        internal void CalcSize()
+        internal void CalcSize(int? customWidth = null)
         {
-            Host.Size = (ListView as Control).Size;
-            Size = new System.Drawing.Size((ListView as Control).Size.Width + 4, (ListView as Control).Size.Height + 4);
+            if (customWidth == null)
+            {
+                Host.Size = (ListView as Control).Size;
+                Size = new Size((ListView as Control).Size.Width + 4, (ListView as Control).Size.Height + 4);
+            } 
+            else
+            {
+                Host.Size = new Size((int)customWidth, (ListView as Control).Size.Height);
+                Size = new Size((int)customWidth + 4, (ListView as Control).Size.Height + 4);
+                Debug.WriteLine("Setting width to " + customWidth);
+            }
         }
 
         public override RightToLeft RightToLeft
