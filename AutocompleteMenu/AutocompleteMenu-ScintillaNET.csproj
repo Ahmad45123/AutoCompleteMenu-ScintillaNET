@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net5.0-windows;net45;net6-windows;net7-windows;net4</TargetFrameworks>
 		<OutputType>Library</OutputType>
@@ -61,6 +61,6 @@
 		<PackageReference Include="jacobslusser.ScintillaNET" Version="3.6.3" />
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' != 'net4' ">
-		<PackageReference Include="Scintilla.NET" Version="5.3.1" />
+		<PackageReference Include="Scintilla.NET" Version="5.3.2.7" />
 	</ItemGroup>
 </Project>
