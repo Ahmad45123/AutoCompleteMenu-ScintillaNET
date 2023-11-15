@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net5.0-windows;net45;net6-windows;net7-windows;net4</TargetFrameworks>
 		<OutputType>Library</OutputType>
@@ -48,7 +48,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0" />
 
 	</ItemGroup>
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
